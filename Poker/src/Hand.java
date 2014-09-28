@@ -2,6 +2,9 @@ import java.util.*;
 
 /**
  * A poker hand is a list of cards, which can be of some "kind" (pair, straight, etc.)
+ *
+ * @author Jeton Sinoimeri
+ * @version 1.0 - Sept 24, 2014
  * 
  */
 
@@ -28,7 +31,7 @@ public class Hand implements Comparable<Hand> {
     
     /**
      * @returns true if the hand has n cards of the same rank
-	 * e.g., "TD TC TH 7C 7D" returns True for n=2 and n=3, and False for n=1 and n=4
+	   * e.g., "TD TC TH 7C 7D" returns True for n=2 and n=3, and False for n=1 and n=4
      */
     protected boolean hasNKind(int n) {
     	
@@ -69,7 +72,7 @@ public class Hand implements Comparable<Hand> {
     }
     
     /**
-	 * Optional: you may skip this one. If so, just make it return False
+	   * Optional: you may skip this one. If so, just make it return False
      * @returns true if the hand has two pairs
      */
     public boolean isTwoPair() {
@@ -145,7 +148,7 @@ public class Hand implements Comparable<Hand> {
     @Override
     public int compareTo(Hand h) {
         //hint: delegate!
-		//and don't worry about breaking ties
+		    //and don't worry about breaking ties
     	if (this.kind().ordinal() > h.kind().ordinal())
     		return 1;
     	
@@ -156,7 +159,7 @@ public class Hand implements Comparable<Hand> {
     }
     
     /**
-	 * This method is already implemented and could be useful! 
+	   * This method is already implemented and could be useful! 
      * @returns the "kind" of the hand: flush, full house, etc.
      */
     public Kind kind() {
