@@ -7,7 +7,10 @@ Software Development Project Course using Java
 BuddyInfo:
 
             BuddyInfo contains two java source files that represent contacts and address book
+            
+            
             BuddyInfo.java represents the contacts that will be put into the address book
+            
             AddressBook.java represents the address book that contains BuddyInfo objects
             
 
