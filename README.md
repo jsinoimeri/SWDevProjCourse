@@ -52,10 +52,24 @@ Poker:
         
 
 Prof-Student-TA:
-                
+
                  Prof-Student-TA is an example of how to reduce coupling between classes. This
-                 repository contain three folders: Original, Event Model, and Observer. Each folder
-                 contains the java source code that represents a Prof, Student and TA class along
-                 with other class that may be related to the parent folder.
+                 folder contain three subfolders: Original, Observer, and Event Model, as well
+                 as three UML class Diagrams for each subfolder. Each subfolder contains the 
+                 java source code that represents a Prof, Student and TA class along with other
+                 classes that may be related to the parent folder. 
                  
+                 
+                 Original contains three source files that have high coupling among them.
+                 
+                 Observer conatins three source files that use the Observer Pattern. The observable
+                 is the Prof class while both the Student and TA classes implement the observer
+                 interface.
+                 
+                 Event Model contains the three source files along with two other classes that
+                 represent CourseEvent, a subclass of EventObject, and CourseListener, an interface.
+                 Both Student and TA implement CourseListener while Prof maintains a list of 
+                 CourseListeners. 
+                 This is an alternative to Observer Pattern, thus allowing the programmer to have 
+                 more control over finding who the source is and calling the appropriate methods.
                  
