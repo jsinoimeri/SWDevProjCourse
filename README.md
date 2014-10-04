@@ -50,3 +50,12 @@ Poker:
         
         Poker.java -> distributes the hands and determines the winner.
         
+
+Prof-Student-TA:
+                
+                 Prof-Student-TA is an example of how to reduce coupling between classes. This
+                 repository contain three folders: Original, Event Model, and Observer. Each folder
+                 contains the java source code that represents a Prof, Student and TA class along
+                 with other class that may be related to the parent folder.
+                 
+                 
