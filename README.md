@@ -27,12 +27,12 @@ Zulu:
       
       
         Command.java -> holds information about a command that was issued by the 
-      								player.
+                        player.
       
         CommandWords.java -> holds a list of commands available to the player.
       
         Game.java -> initializes the classes involved in order for the game to be 
-      						 played and contains the main method for the game.
+                     played and contains the main method for the game.
       
         Item.java -> models an item that is present in the room.
         
@@ -50,7 +50,7 @@ Poker:
         Card.java -> represents a playing card object.
         
         Hand.java -> a collection of five Card objects that represents the player's 
-        						 poker hand
+                     poker hand
         
         Poker.java -> distributes the hands and determines the winner.
         
