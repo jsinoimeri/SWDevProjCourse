@@ -81,22 +81,21 @@ Prof-Student-TA:
                  appropriate methods.
                  
 XML:
-			XML is a project that have a UML class diagram and four source files that are 
-			responsible for writing XML documents.
-			The four source files are located in the XMLDocument file. The classes are 
-			called: Elements, XMLDoc, Tag, and Text.
-			
-			
-			Text -> Text class represents a value, the smallest unit in XML.
-			
-			Tag -> Tag describes the text field. Each text field has an opening tag in 
-						 front of it and a closing tag at the end of it.
-			       
-			Elements -> An element is a combination of opening tag, text field, and 
-									closing Tag. An element may contain one or more subelements.
-			            
-			
-			XMLDoc -> XMLDoc class keeps a list of Elements and it is responsible for
-								creating the XML document.
-								
-								
+
+	XML is a project that have a UML class diagram and four source files that are 
+	responsible for writing XML documents.
+	The four source files are located in the XMLDocument file. The classes are 
+	called: Elements, XMLDoc, Tag, and Text.
+				
+				
+	Text -> Text class represents a value, the smallest unit in XML.
+		
+	Tag -> Tag describes the text field. Each text field has an opening tag in 
+		   front of it and a closing tag at the end of it.
+		       
+	Elements -> An element is a combination of opening tag, text field, and 
+	 		    closing Tag. An element may contain one or more subelements.
+	
+	XMLDoc -> XMLDoc class keeps a list of Elements and it is responsible for
+			  creating the XML document.
+ 			
