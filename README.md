@@ -6,7 +6,8 @@ Software Development Project Course using Java
 
 BuddyInfo:
 
-            BuddyInfo contains two java source files that represent contacts and address book
+            BuddyInfo contains two java source files that represent contacts and address
+            book
             
             
             BuddyInfo.java represents the contacts that will be put into the address book
@@ -80,7 +81,6 @@ Prof-Student-TA:
                  appropriate methods.
                  
 XML:
-			
 			XML is a project that have a UML class diagram and four source files that are 
 			responsible for writing XML documents.
 			The four source files are located in the XMLDocument file. The classes are 
@@ -96,5 +96,7 @@ XML:
 									closing Tag. An element may contain one or more subelements.
 			            
 			
-			XMLDoc -> XMLDoc class keeps a list of Elements and it is responsible for creating the
-								XML document.
+			XMLDoc -> XMLDoc class keeps a list of Elements and it is responsible for
+								creating the XML document.
+								
+								
