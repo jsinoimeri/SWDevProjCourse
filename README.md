@@ -79,6 +79,7 @@ Prof-Student-TA:
                  This is an alternative to Observer Pattern, thus allowing the programmer
                  to have more control over finding who the source is and calling the
                  appropriate methods.
+
                  
 XML:
 
@@ -99,3 +100,23 @@ XML:
         XMLDoc -> XMLDoc class keeps a list of Elements and it is responsible for 
                   creating the XML document.
 
+
+BuddyInfoGUI:
+
+              GUI (Graphical User Interface) represenation of the BuddyInfo.
+              Contains four source files called AddressBook.java, BuddyInfo.java
+              ButtonFrame.java, GUIAddressBook.java.
+              
+              
+              AddressBook.java -> See BuddyInfo above.
+              
+              BuddyInfo.java -> See BuddyInfo above.
+              
+              ButtonFrame.java -> The framework for a JButton along with an
+                                  actionListoner.
+              
+              GUIAddressBook.java -> The GUI for adding a new, saving and
+                                     displaying the address book as well as adding
+                                     a new friend.
+              
+              
