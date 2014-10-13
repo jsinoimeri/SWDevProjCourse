@@ -81,24 +81,25 @@ Prof-Student-TA:
                  appropriate methods.
 
                  
-XML:
+XMLDocument:
 
-        XML is a project that have a UML class diagram and four source files that are 
-        responsible for writing XML documents. 
-        The four source files are located in the XMLDocument file. The classes are 
-        called: Elements, XMLDoc, Tag, and Text. 
+            XMLDocument contains four source files that make up a simple XML Document by
+            following the Composite pattern. The four source files are: XMLDocument.java,
+            Element.java, SimpleElement.java, CompositeElement.java.
         
         
-        Text -> Text class represents a value, the smallest unit in XML. 
-        
-        Tag -> Tag describes the text field. Each text field has an opening tag in 
-               front of it and a closing tag at the end of it.
-               
-        Elements -> An element is a combination of opening tag, text field, and 
-                    closing Tag. An element may contain one or more subelements.
-                    
-        XMLDoc -> XMLDoc class keeps a list of Elements and it is responsible for 
-                  creating the XML document.
+            XMLDocument.java -> XMLDocument represents an XML Document that comprised 
+                                of Elements.
+                                
+            Element.java -> Abstract class Element represents an XML Document element 
+                            that which has a tag, a value that may or may not consist 
+                            of other elements.
+                            
+            CompsositeElement.java -> CompositeElement is an Element that may contain 
+                                      one or more sub Elements.
+                                      
+            SimpleElement.java -> SimpleElement is an Element that has an opening tag,
+                                  a value and a closing tag.
 
 
 BuddyInfoGUI:
