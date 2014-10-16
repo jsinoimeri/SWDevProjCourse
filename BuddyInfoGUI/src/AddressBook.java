@@ -1,58 +1,88 @@
-import java.util.Collection;
+/**
+ * AddressBook is a collection of
+ * BuddyInfos.
+ * 
+ * @author Jeton Sinoimeri
+ * @StudenNum 100875046
+ * 
+ * @version 1.2
+ * @Created Sept 18, 2014
+ * @Modified Oct 15, 2014
+ *
+ */
+
+
 import java.util.HashMap;
-import java.util.Set;
 
 
 public class AddressBook 
 {
-	private HashMap<String, BuddyInfo> addressBook;
+	// hash map representing a collection of BuddyInfos
+	private HashMap<String, BuddyInfo> addressBook;          
+	
+	
+	/**
+	 * Constructor for AddressBook class
+	 * 
+	 */
 	
 	public AddressBook()
 	{
 		addressBook = new HashMap<>();
 	}
 	
+	
+	/**
+	 * Adds a BuddyInfo to the AddressBook
+	 * 
+	 * @param name -> String representing the name of the Buddy
+	 * @param buddy_info -> BuddyInfo instance to be added to the
+	 *                      collection
+	 */
+	
 	public void addBuddy(String name, BuddyInfo buddy_info)
 	{
 		this.addressBook.put(name, buddy_info);
 	}
+	
+	
+	/**
+	 * Removes a BuddyInfo from the AddressBook
+	 * 
+	 * @param name -> String representing the name of the Buddy
+	 *                to be deleted.
+	 */
 	
 	public void remove(String name)
 	{
 		this.addressBook.remove(name);
 	}
 	
-	public BuddyInfo [] getAddressBookSet()
+	
+	/**
+	 * Gets all the BuddyInfos that are in the AddressBook in
+	 * an array.
+	 * 
+	 * @return bI -> An array of BuddyInfos that are in the
+	 *               AddressBook
+	 */
+	
+	public BuddyInfo [] getAddressBookArray()
 	{
-		BuddyInfo [] b = new BuddyInfo [this.addressBook.size()];
+		// create an array
+		BuddyInfo [] bI = new BuddyInfo [this.addressBook.size()];
 		
-		int i = 0;
+		// index of array
+		int i = 0; 
 		
+		// for each buddy, add to array and increment the index
 		for (String s: this.addressBook.keySet())
 		{
-			b[i] = this.addressBook.get(s);
+			bI[i] = this.addressBook.get(s);
 			i++;
 		}
 		
-		return b;
-	}
-	
-	public static void main(String [] args)
-	{
-		AddressBook ab = new AddressBook();
-		BuddyInfo b = new BuddyInfo("s", "h", "r");
-		ab.addBuddy(b.getName(), b);
-		
-		b = new BuddyInfo("f", "e", "u");
-		ab.addBuddy(b.getName(), b);
-		
-		for (int i = 0; i < ab.getAddressBookSet().length; i++)
-		{
-			System.out.println(ab.getAddressBookSet()[i].getName());
-			System.out.println(ab.getAddressBookSet()[i].getAddress());
-			System.out.println(ab.getAddressBookSet()[i].getPhoneNum());
-		}
-		
+		return bI;
 	}
 	
 }
