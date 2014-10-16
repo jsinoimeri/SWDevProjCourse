@@ -74,8 +74,10 @@ Prof-Student-TA:
                  Event Model contains the three source files along with two other classes
                  that represent CourseEvent, a subclass of EventObject, and
                  CourseListener, an interface.
+                 
                  Both Student and TA implement CourseListener while Prof maintains a list
                  of CourseListeners.
+                 
                  This is an alternative to Observer Pattern, thus allowing the programmer
                  to have more control over finding who the source is and calling the
                  appropriate methods.
@@ -112,9 +114,6 @@ BuddyInfoGUI:
               AddressBook.java -> See BuddyInfo above.
               
               BuddyInfo.java -> See BuddyInfo above.
-              
-              ButtonFrame.java -> The framework for a JButton along with an
-                                  actionListoner.
               
               GUIAddressBook.java -> The GUI for adding a new, saving and
                                      displaying the address book as well as adding
