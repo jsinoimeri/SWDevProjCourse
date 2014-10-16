@@ -10,14 +10,13 @@
  * 
  * @author Jeton Sinoimeri
  * 
- * @version 1.3
+ * @version 1.4
  * @Created Oct 9, 2014
- * @Modified Oct 15, 2014
+ * @Modified Oct 16, 2014
  * 
  */
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,7 +25,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.swing.*;
-import javax.swing.border.MatteBorder;
+
 
 public class GUIAddressBook extends JFrame implements  ActionListener
 {
@@ -41,11 +40,18 @@ public class GUIAddressBook extends JFrame implements  ActionListener
 			                    ADDRESSBOOKINFO = "My address book containing: \n";
 	
 	
-	
-	private enum text {NEW, SAVE, ADD};                 // enum for the menu bar texts
+	// enum for the texts
+	private enum text {NEW, SAVE, ADD, DISPLAY, NAME, 
+		               ADDRESS, PHONENUM, FILE, BUDDYINFO,
+		               EDIT, EDITBUDDY, REMOVE};                 
 	
 	private JFrame f,                                   // AddressBook JFrame instance
-	               buddyFrame;                          // BuddyInfo JFrame instance
+	               editFrame,                           // Editing JFrame instance
+	               buddyFrame,                          // BuddyInfo JFrame instance
+	               removeFrame;                         // Removing JFrame instance
+	               
+	
+	JPanel pl;                                          // JPanel instance 
 	
 	private JMenuBar menuBar;                           // JMenuBar instance
 	private AddressBook ab;                             // AddressBook instance
@@ -86,6 +92,14 @@ public class GUIAddressBook extends JFrame implements  ActionListener
 		this.f = new JFrame(frameName);
 		
 		
+		// create JPanel
+		this.pl = new JPanel();
+		
+		
+		// add JPanel to JFrame
+		this.f.add(this.pl);
+		
+		
 		// set the size and closing feature
 		this.f.setSize(FRAMEDIMENSION[0], FRAMEDIMENSION[1]);
 		this.f.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -117,10 +131,14 @@ public class GUIAddressBook extends JFrame implements  ActionListener
 				
 		
 		// create different tabs on Menu Bar
-		JMenu fileMenu = new JMenu("File");
+		JMenu fileMenu = new JMenu(text.FILE.name());
 		this.menuBar.add(fileMenu);
 		
-		JMenu buddyMenu = new JMenu("BuddyInfo");
+		JMenu editMenu = new JMenu(text.EDIT.name());
+		this.menuBar.add(editMenu);
+		editMenu.setEnabled(false);               // disable this menu at initialization
+		
+		JMenu buddyMenu = new JMenu(text.BUDDYINFO.name());
 		this.menuBar.add(buddyMenu);
 		buddyMenu.setEnabled(false);               // disable this menu at initialization
 		
@@ -137,6 +155,21 @@ public class GUIAddressBook extends JFrame implements  ActionListener
 		fileMenu.add(item);
 		item.setEnabled(false);                     // disable this item at initialization
 		
+		item = new JMenuItem(text.DISPLAY.name());
+		item.addActionListener(this);
+		fileMenu.add(item);
+		item.setEnabled(false);                     // disable this item at initialization
+		
+		item = new JMenuItem(text.EDITBUDDY.name());
+		item.addActionListener(this);
+		editMenu.add(item);
+		item.setEnabled(false);                     // disable this item at initialization
+		
+		item = new JMenuItem(text.REMOVE.name());
+		item.addActionListener(this);
+		editMenu.add(item);
+		item.setEnabled(false);                     // disable this item at initialization
+		
 		item = new JMenuItem(text.ADD.name());
 		item.addActionListener(this);
 		buddyMenu.add(item);
@@ -150,6 +183,7 @@ public class GUIAddressBook extends JFrame implements  ActionListener
 	 * 
 	 * @param bIarray -> An array of all the BuddyInfos in the
 	 *                   Address Book
+	 *                   
 	 */
 	
 	private void writeTOfile(BuddyInfo [] bIarray)
@@ -164,7 +198,7 @@ public class GUIAddressBook extends JFrame implements  ActionListener
 			// for every BuddyInfo in array write to file
 			for(BuddyInfo bI: bIarray)
 			{
-				String contact = bI.getName() + "\n" + bI.getAddress() + "\n" + bI.getPhoneNum() + "\n";
+				String contact = "\n" + bI.getName() + "\n" + bI.getAddress() + "\n" + bI.getPhoneNum() + "\n";
 				out.write(contact);
 			}
 			
@@ -188,55 +222,68 @@ public class GUIAddressBook extends JFrame implements  ActionListener
 	
 	private void makeBuddyFrame()
 	{
+		//  initializing JTextArea instances 
 		this.name = new JTextArea();
 		this.address = new JTextArea();
 		this.phone_num = new JTextArea();
 		
-		
+		// create a new JFrame
 		this.buddyFrame = new JFrame("Add BuddyInfo");
 		
+		// set the size and closing features
 		this.buddyFrame.setSize(FRAMEDIMENSION[0], FRAMEDIMENSION[1]);
 		this.buddyFrame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
-		JMenuBar buddyMenuBar = new JMenuBar();
 		
-		JMenu buddyMenu = new JMenu("BuddyInfo");
-		buddyMenuBar.add(buddyMenu);
+		// create a JButton
+		JButton button = new JButton(text.ADD.name());
 		
-		JMenuItem item = new JMenuItem(text.ADD.name());
-		item.addActionListener(this);
-		buddyMenu.add(item);
-		
-		// display the menu
-		this.buddyFrame.setJMenuBar(buddyMenuBar);
-		
-		JButton button = new JButton("Add");
+		// add an actionListener to the button
 		button.addActionListener(this);
 		
+		// create a new JPanel with BorderLayout
 		JPanel buddyPanel = new JPanel(new BorderLayout());
 		
-		JPanel buddyInfoPanel = new JPanel(new GridLayout(3, 2));
+		// create a GridLayout
+		GridLayout gl = new GridLayout(3, 2);
+		
+		// set the GridLayout vertical gaps
+		gl.setVgap(2);
+		
+		// create a new JPanel with GridLayout
+		JPanel buddyInfoPanel = new JPanel(gl);
 
 		
-		buddyInfoPanel.add(new JLabel("Name"));
+		// add the JLabels and JTextArea instances to the buddyInfoPanel
+		buddyInfoPanel.add(new JLabel(text.NAME.name()));
 		buddyInfoPanel.add(this.name);
-		buddyInfoPanel.add(new JLabel("Address"));
+		buddyInfoPanel.add(new JLabel(text.ADDRESS.name()));
 		buddyInfoPanel.add(this.address);
-		buddyInfoPanel.add(new JLabel("Phone Number"));
+		buddyInfoPanel.add(new JLabel(text.PHONENUM.name()));
 		buddyInfoPanel.add(this.phone_num);
 		
 		
+		// add the button to the buddyPanel at the bottom
 		buddyPanel.add(button, BorderLayout.SOUTH);
+		
+		// add the buddyInfoPanel to the buddyPanel at the center
 		buddyPanel.add(buddyInfoPanel, BorderLayout.CENTER);
 		
+		// add the buddyPanel to the buddyFrame
 		this.buddyFrame.add(buddyPanel);
+		
+		// set the location of the buddyFrame to be at FRAMEDIMENSION[0], FRAMEDIMENSION[1]
 		this.buddyFrame.setLocation(FRAMEDIMENSION[0], FRAMEDIMENSION[1]);
 		
-		
-		
-		// set frame visible
+		// set buddyFrame visible
 		this.buddyFrame.setVisible(true);
 		
+	}
+	
+	
+	private void removeFrame()
+	{
+		this.removeFrame = new JFrame("Removing a buddy");
 	}
 	
 	
@@ -266,7 +313,9 @@ public class GUIAddressBook extends JFrame implements  ActionListener
 				
 				// enable the disable menu tab and menu item
 				this.menuBar.getMenu(1).setEnabled(true);
+				this.menuBar.getMenu(2).setEnabled(true);
 				this.menuBar.getMenu(0).getMenuComponent(1).setEnabled(true);
+				
 								
 			}
 			
@@ -285,16 +334,83 @@ public class GUIAddressBook extends JFrame implements  ActionListener
 			// add a buddy to the address book
 			else if (e.getActionCommand().equals(text.ADD.name()))
 			{
-				System.out.println("Added");				
+				System.out.println("Added");
+				
+				if (! this.menuBar.getMenu(0).getMenuComponent(2).isEnabled())
+					this.menuBar.getMenu(0).getMenuComponent(2).setEnabled(true);
+				
+				if (! this.menuBar.getMenu(1).getMenuComponent(0).isEnabled())
+					this.menuBar.getMenu(1).getMenuComponent(0).setEnabled(true);
+				
+				if (! this.menuBar.getMenu(1).getMenuComponent(1).isEnabled())
+					this.menuBar.getMenu(1).getMenuComponent(1).setEnabled(true);
 				
 				this.makeBuddyFrame();
 			
 			}
+			
+			// display address book to the GUI
+			else if (e.getActionCommand().equals(text.DISPLAY.name()))
+			{
+				System.out.println("Displayed");				
+				
+				// JLabel
+				JLabel label;
+				
+				// GridLayout with row size = number of contacts and col size = 1
+				GridLayout gl = new GridLayout(this.ab.getAddressBookArray().length, 1);
+				
+				// remove previous JPanel
+				this.f.remove(this.pl);
+				
+				// create new JPanel
+				this.pl =  new JPanel(gl);
+				
+				// add JPanel to JFrame
+				this.f.add(pl);
+				
+				BuddyInfo [] ab_array = this.ab.getAddressBookArray();    // get an array of buddyInfos
+				
+				
+				// for each BuddyInfo in the array, display on GUI
+				for (BuddyInfo bI: ab_array)
+				{
+					String nameString = text.NAME.name() + ": " + bI.getName() + " " 
+				                      + text.ADDRESS.name()+ ": " + bI.getAddress() + " "
+				                      + text.PHONENUM.name() + ": " + bI.getPhoneNum();
+
+					label = new JLabel(nameString);
+
+					this.pl.add(label);
+					
+				}
+				
+				this.f.setVisible(true);
+				
+			}
+			
+			// editing a buddy's information
+			else if (e.getActionCommand().equals(text.EDITBUDDY.name()))
+			{
+				System.out.println("Edited");
+			}
+			
+			
+			// removing a buddy from the address book
+			else if (e.getActionCommand().equals(text.REMOVE.name()))
+			{
+				System.out.println("Removed");
+				
+				this.removeFrame();
+			}
+						
+			
+			
 		}
 		
 		if (e.getSource() instanceof JButton)
 		{
-			if (e.getActionCommand().equals("Add"))
+			if (e.getActionCommand().equals(text.ADD.name()))
 			{
 				System.out.println("Button Pressed");
 				
