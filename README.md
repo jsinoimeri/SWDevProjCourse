@@ -120,3 +120,23 @@ BuddyInfoGUI:
                                      a new friend.
               
               
+BuddyInfoTesting:
+
+                        This folder contains the BuddyInfo and the Addressbook class 
+                        along with the JUnit testing for both classes. Classes that
+                        are in this folder are AddressBook.java, BuddyInfo.java,
+                        AddressBookTest.java, BuddyInfoTest.java.
+                        
+                        
+                        AddressBook.java -> See BuddyInfo above.
+              
+                        BuddyInfo.java -> See BuddyInfo above.
+                        
+                        AddressBookTest.java -> JUnit testing for the AddressBook class.
+                        
+                        BuddyInfoTest.java -> JUnit testing for the BuddyInfo class.
+                        
+                        
+Movie:
+            
+                        
