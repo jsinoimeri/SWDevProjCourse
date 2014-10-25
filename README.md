@@ -144,6 +144,7 @@ Movie:
        rest are JUnit tests. This was written using Extreme Programming i.e. the test-driven
        development method.
        
+       
        Movie.java -> Movie class representing a movie Object which has a name of the movie.
        
        MovieList.java -> MovieList maintains a list of Movie objects. It can add and check
