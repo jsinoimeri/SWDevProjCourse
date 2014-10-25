@@ -138,5 +138,47 @@ BuddyInfoTesting:
                         
                         
 Movie:
+
+       Movie represents a way to add and check movies in a list in no particular order.
+       It contains seven source files, two of which are implementation classes while the 
+       rest are JUnit tests. This was written using Extreme Programming i.e. the test-driven
+       development method.
+       
+       Movie.java -> Movie class representing a movie Object which has a name of the movie.
+       
+       MovieList.java -> MovieList maintains a list of Movie objects. It can add and check
+                         if there is a Movie object in the list.
+       
+       AllTests.java -> JUnit test that uses TestCases and suite method.
+       
+       MovieListTest.java -> JUnit test that tests all the methods in MovieList class.
+       
+       TestMovieListWithEmptyList.java -> JUnit test to test for an empty list.
+       
+       TestMovieListWithOneMovie.java -> JUnit test to test the size of the movie as well
+                                         the ability to add one movie to the list.
+                                         
+       TestMovieListWithTwoMovies.java -> JUnit test to test the size of the movie as well
+                                          the ability to add two movies to the list.
             
                         
+CounterMVC: 
+
+            CounterMVC represents a counter being displayed onto the GUI screen using
+            the Model-View-Contoller (MVC) pattern. This has four source files:
+            Counter.java, Controller.java, View.java, Main.java.
+            
+            Counter.java -> Counter class representing the Model. It increments to
+                            a max value and then resets to a default value.
+                            
+            Controller.java -> Controller class is the Controller in this pattern.
+                               It tells the Model to change when an action is
+                               performed.
+                               
+            View.java -> View class is the View in this patern. It displays the
+                         contents of the Model to the GUI whenever the user
+                         presses a button to increment the Counter.
+                         
+            Main.java -> This class has the main method to run this entire
+                         project.
+                         
