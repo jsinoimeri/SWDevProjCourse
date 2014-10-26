@@ -1,3 +1,14 @@
+/**
+ * JUnit testing for BuddyInfo class.
+ * 
+ * @author Jeton Sinoimeri
+ * 
+ * @version 1.1
+ * @created Oct 23, 2014
+ * @modified Oct 26, 2014
+ * 
+ */
+
 import static org.junit.Assert.*;
 
 import org.junit.After;

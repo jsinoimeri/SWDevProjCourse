@@ -1,3 +1,14 @@
+/**
+ * JUnit testing for AddressBook class.
+ * 
+ * @author Jeton Sinoimeri
+ * 
+ * @version 1.1
+ * @created Oct 23, 2014
+ * @modified Oct 26, 2014
+ * 
+ */
+
 import static org.junit.Assert.*;
 
 import org.junit.After;
@@ -47,25 +58,17 @@ public class AddressBookTest
 	@Test
 	public void testRemove() 
 	{
-		// add buddyInfo
 		BuddyInfo bI = new BuddyInfo("H", "234, 9", "234234234", 40);
 		this.ab.addBuddy(bI.getName(), bI);
 		
-		// add buddyInfo
 		bI = new BuddyInfo("L", "234, 4", "23234234", 23);
 		this.ab.addBuddy(bI.getName(), bI);
 		assertEquals(this.ab.getSize(), 2);
-		
-		// remove first buddyInfo
+
 		this.ab.remove("H");
-		
-		// test size
 		assertEquals(this.ab.getSize(), 1);
 		
-		// remove second buddyInfo
 		this.ab.remove("L");
-		
-		// test size
 		assertEquals(this.ab.getSize(), 0);
 	}
 
@@ -78,21 +81,15 @@ public class AddressBookTest
 	@Test
 	public void testClearAddressBook() 
 	{
-		// add buddyInfo 1
 		BuddyInfo bI = new BuddyInfo("H", "234, 9", "234234234", 40);
 		this.ab.addBuddy(bI.getName(), bI);
-		
-		// add buddyInfo 2
+
 		bI = new BuddyInfo("L", "234, 4", "23234234", 23);
 		this.ab.addBuddy(bI.getName(), bI);
-		
-		// check value
+
 		assertEquals(this.ab.getSize(), 2);
-		
-		// clear the address book
+
 		this.ab.clearAddressBook();
-		
-		// check value
 		assertEquals(this.ab.getSize(), 0);
 		
 	}
