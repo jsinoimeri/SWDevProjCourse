@@ -183,3 +183,17 @@ CounterMVC:
             Main.java -> This class has the main method to run this entire
                          project.
                          
+BuddyInfo Serialization:
+
+                        This folder contains BuddyInfo Testing that implement
+                        Serializable.
+                        
+                        
+                        AddressBook.java -> See BuddyInfo above.
+              
+                        BuddyInfo.java -> See BuddyInfo above.
+                        
+                        AddressBookTest.java -> See BuddyInfoTesting above.
+                        
+                        BuddyInfoTest.java -> See BuddyInfoTesting above.
+                        
