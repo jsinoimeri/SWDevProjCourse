@@ -169,6 +169,7 @@ CounterMVC:
             the Model-View-Contoller (MVC) pattern. This has four source files:
             Counter.java, Controller.java, View.java, Main.java.
             
+            
             Counter.java -> Counter class representing the Model. It increments to
                             a max value and then resets to a default value.
                             
