@@ -198,3 +198,20 @@ BuddyInfo Serialization:
                         
                         BuddyInfoTest.java -> See BuddyInfoTesting above.
                         
+BuddyInfo XML:
+
+               This folder contains BuddInfo with Serialization as well 
+               as import to and export to xml document.
+               
+               
+               AddressBook.java -> See BuddyInfo above.
+              
+               BuddyInfo.java -> See BuddyInfo above.
+               
+               MyAddressBook.txt -> Text file containing BuddyInfo in
+                                    text format.
+                                    
+               MyAddressBook.xml -> XML Document containing BuddyInfo in
+                                    xml format.
+                                    
+
