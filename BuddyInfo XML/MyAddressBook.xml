@@ -1,0 +1,12 @@
+<AddressBook>
+	<BuddyInfo>
+		<Name>Lisa Simpson</Name>
+		<Address>28 diop st</Address>
+		<PhoneNum>555-256-3478</PhoneNum>
+	</BuddyInfo>
+	<BuddyInfo>
+		<Name>Homer Simpson</Name>
+		<Address>238 dixon rd</Address>
+		<PhoneNum>615-245-3443</PhoneNum>
+	</BuddyInfo>
+</AddressBook>
